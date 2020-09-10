@@ -12,6 +12,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
+app.debug = False
 
 #環境変数取得
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
