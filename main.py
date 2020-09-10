@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, FlexSendMessage
 )
 
 app = Flask(__name__)
@@ -31,7 +31,109 @@ def callback():
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
-    body = request.get_data(as_text=True)
+#    body = request.get_data(as_text=True)
+    body = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "label": "Line",
+        "uri": "https://linecorp.com/"
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "お問い合わせ内容",
+          "size": "xl",
+          "weight": "bold"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "margin": "lg",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "以下の選択肢より、お選びください。",
+                  "flex": 5,
+                  "size": "sm",
+                  "color": "#666666",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "flex": 0,
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "1. 新規受付",
+            "text": "1. 新規受付"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "2. 写真下見",
+            "text": "2. 写真下見"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "3. お役立ち情報",
+            "text": "3. お役立ち情報"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "4. ホームページ",
+            "uri": "https://www.nipponexpress.com/moving/sg/"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "spacer",
+          "size": "sm"
+        }
+      ]
+    }
+  }
+}
     app.logger.info("Request body: " + body)
 
     # handle webhook body
