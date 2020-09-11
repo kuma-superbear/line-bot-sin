@@ -59,7 +59,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if text == '開始':
+    if text == 'index':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='以下の選択肢より、お選びください。', title='お問い合わせ内容', actions=[
                 URIAction(label='1. 新規受付', uri='https://line.me'),
@@ -69,110 +69,110 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Carousel alt text', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif text == 'flex_update_1':
+    elif text == '開始':
         bubble_string = """
         {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "bubble",
-    "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "action": {
-        "type": "uri",
-        "label": "Line",
-        "uri": "https://linecorp.com/"
-      }
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "お問い合わせ内容",
-          "size": "xl",
-          "weight": "bold"
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "margin": "lg",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "以下の選択肢より、お選びください。",
-                  "flex": 5,
-                  "size": "sm",
-                  "color": "#666666",
-                  "wrap": true
-                }
-              ]
+        "type": "flex",
+        "altText": "Flex Message",
+        "contents": {
+            "type": "bubble",
+            "hero": {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+                "type": "uri",
+                "label": "Line",
+                "uri": "https://linecorp.com/"
             }
-          ]
+            },
+            "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                "type": "text",
+                "text": "お問い合わせ内容",
+                "size": "xl",
+                "weight": "bold"
+                },
+                {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "margin": "lg",
+                "contents": [
+                    {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                        "type": "text",
+                        "text": "以下の選択肢より、お選びください。",
+                        "flex": 5,
+                        "size": "sm",
+                        "color": "#666666",
+                        "wrap": true
+                        }
+                    ]
+                    }
+                ]
+                }
+            ]
+            },
+            "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "spacing": "sm",
+            "contents": [
+                {
+                "type": "button",
+                "action": {
+                    "type": "message",
+                    "label": "1. 新規受付",
+                    "text": "1. 新規受付"
+                },
+                "style": "primary"
+                },
+                {
+                "type": "button",
+                "action": {
+                    "type": "message",
+                    "label": "2. 写真下見",
+                    "text": "2. 写真下見"
+                },
+                "style": "primary"
+                },
+                {
+                "type": "button",
+                "action": {
+                    "type": "message",
+                    "label": "3. お役立ち情報",
+                    "text": "3. お役立ち情報"
+                },
+                "style": "primary"
+                },
+                {
+                "type": "button",
+                "action": {
+                    "type": "uri",
+                    "label": "4. ホームページ",
+                    "uri": "https://www.nipponexpress.com/moving/sg/"
+                },
+                "style": "primary"
+                },
+                {
+                "type": "spacer",
+                "size": "sm"
+                }
+            ]
+            }
         }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "flex": 0,
-      "spacing": "sm",
-      "contents": [
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "1. 新規受付",
-            "text": "1. 新規受付"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "2. 写真下見",
-            "text": "2. 写真下見"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "3. お役立ち情報",
-            "text": "3. お役立ち情報"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "uri",
-            "label": "4. ホームページ",
-            "uri": "https://www.nipponexpress.com/moving/sg/"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "spacer",
-          "size": "sm"
         }
-      ]
-    }
-  }
-}
         """
         message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
         line_bot_api.reply_message(
