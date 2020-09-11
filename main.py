@@ -31,59 +31,74 @@ def callback():
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
-#    body = request.get_data(as_text=True)
-    body = {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "bubble",
-    "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "action": {
-        "type": "uri",
-        "label": "Line",
-        "uri": "https://linecorp.com/"
-      }
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+
+    return 'OK'
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    text = event.message.text
+    if text == '開始':
+        bubble_string = """
         {
-          "type": "text",
-          "text": "お問い合わせ内容",
-          "size": "xl",
-          "weight": "bold"
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "margin": "lg",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "以下の選択肢より、お選びください。",
-                  "flex": 5,
-                  "size": "sm",
-                  "color": "#666666",
-                  "wrap": true
+            "type": "flex",
+            "altText": "Flex Message",
+            "contents": {
+                "type": "bubble",
+                "hero": {
+                "type": "image",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                    "type": "uri",
+                    "label": "Line",
+                    "uri": "https://linecorp.com/"
                 }
-              ]
-            }
-          ]
-        }
-      ]
-    },
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "お問い合わせ内容",
+                        "size": "xl",
+                        "weight": "bold"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "margin": "lg",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "以下の選択肢より、お選びください。",
+                                        "flex": 5,
+                                        "size": "sm",
+                                        "color": "#666666",
+                                        "wrap": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+        },
     "footer": {
       "type": "box",
       "layout": "vertical",
@@ -134,21 +149,13 @@ def callback():
     }
   }
 }
-    app.logger.info("Request body: " + body)
+"""
+        message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
+        line_bot_api.reply_message(event.reply_token, message)
 
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    line_bot_api.reply_message(
+'''    line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=event.message.text))        '''
 
 if __name__ == "__main__":
 #    app.run()
