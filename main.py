@@ -72,128 +72,107 @@ def handle_message(event):
     elif text == 'flex_update_1':
         bubble_string = """
         {
-          "type": "bubble",
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "image",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip3.jpg",
-                "position": "relative",
-                "size": "full",
-                "aspectMode": "cover",
-                "aspectRatio": "1:1",
-                "gravity": "center"
-              },
-              {
-                "type": "box",
-                "layout": "horizontal",
-                "contents": [
-                  {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Brown Hotel",
-                        "weight": "bold",
-                        "size": "xl",
-                        "color": "#ffffff"
-                      },
-                      {
-                        "type": "box",
-                        "layout": "baseline",
-                        "margin": "md",
-                        "contents": [
-                          {
-                            "type": "icon",
-                            "size": "sm",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                          },
-                          {
-                            "type": "icon",
-                            "size": "sm",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                          },
-                          {
-                            "type": "icon",
-                            "size": "sm",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                          },
-                          {
-                            "type": "icon",
-                            "size": "sm",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                          },
-                          {
-                            "type": "icon",
-                            "size": "sm",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-                          },
-                          {
-                            "type": "text",
-                            "text": "4.0",
-                            "size": "sm",
-                            "color": "#d6d6d6",
-                            "margin": "md",
-                            "flex": 0
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "¥62,000",
-                        "color": "#a9a9a9",
-                        "decoration": "line-through",
-                        "align": "end"
-                      },
-                      {
-                        "type": "text",
-                        "text": "¥42,000",
-                        "color": "#ebebeb",
-                        "size": "xl",
-                        "align": "end"
-                      }
-                    ]
-                  }
-                ],
-                "position": "absolute",
-                "offsetBottom": "0px",
-                "offsetStart": "0px",
-                "offsetEnd": "0px",
-                "backgroundColor": "#00000099",
-                "paddingAll": "20px"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "SALE",
-                    "color": "#ffffff"
-                  }
-                ],
-                "position": "absolute",
-                "backgroundColor": "#ff2600",
-                "cornerRadius": "20px",
-                "paddingAll": "5px",
-                "offsetTop": "10px",
-                "offsetEnd": "10px",
-                "paddingStart": "10px",
-                "paddingEnd": "10px"
-              }
-            ],
-            "paddingAll": "0px"
-          }
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "label": "Line",
+        "uri": "https://linecorp.com/"
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "お問い合わせ内容",
+          "size": "xl",
+          "weight": "bold"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "margin": "lg",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "以下の選択肢より、お選びください。",
+                  "flex": 5,
+                  "size": "sm",
+                  "color": "#666666",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
         }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "flex": 0,
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "1. 新規受付",
+            "text": "1. 新規受付"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "2. 写真下見",
+            "text": "2. 写真下見"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "3. お役立ち情報",
+            "text": "3. お役立ち情報"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "4. ホームページ",
+            "uri": "https://www.nipponexpress.com/moving/sg/"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "spacer",
+          "size": "sm"
+        }
+      ]
+    }
+  }
+}
         """
         message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
         line_bot_api.reply_message(
