@@ -59,16 +59,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if text == 'carousel':
+    if text == '開始':
         carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='hoge1', title='fuga1', actions=[
-                URIAction(label='Go to line.me', uri='https://line.me'),
+            CarouselColumn(text='以下の選択肢より、お選びください。', title='お問い合わせ内容', actions=[
+                URIAction(label='1. 新規受付', uri='https://line.me'),
                 PostbackAction(label='ping', data='ping')
-            ]),
-            CarouselColumn(text='hoge2', title='fuga2', actions=[
-                PostbackAction(label='ping with text', data='ping', text='ping'),
-                MessageAction(label='Translate Rice', text='米')
-            ]),
+            ])
         ])
         template_message = TemplateSendMessage(
             alt_text='Carousel alt text', template=carousel_template)
