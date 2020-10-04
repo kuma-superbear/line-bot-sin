@@ -245,7 +245,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token, [
                 TextSendMessage(text='シンガポール日通では、日本人会への寄付品を、お引越時にお受け取りし、日本人会へお運びしております。'),
-                TextSendMessage(text='不要な本（新品、中古品）・日用品（未使用のみ）・お洋服（未使用のみ）'),
+                TextSendMessage(text='・不要な本（新品、中古品）　+ ’¥n ’ + ・日用品（未使用のみ）・お洋服（未使用のみ）'),
                 TextSendMessage(text='ご自宅1か所にまとめていただき、お引越当日、寄付品がある旨、スタッフへお申しつけ下さい。')
                 ]
             )
