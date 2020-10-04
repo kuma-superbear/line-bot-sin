@@ -59,7 +59,16 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if text == 'index':
+    if text == '写真下見':
+        confirm_template = ConfirmTemplate(text='LINE下見ですね。こちらはすでに日通にご連絡いただいた方専用となります。　<br＞日通にご連絡いただいていますか？', 
+        actions=[
+            MessageAction(label='Yes', text='Yes!'),
+            MessageAction(label='No', text='No!'),
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='Confirm alt text', template=confirm_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
+    elif text == 'index':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='以下の選択肢より、お選びください。', title='お問い合わせ内容', actions=[
                 URIAction(label='1. 新規受付', uri='https://line.me'),
