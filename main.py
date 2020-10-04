@@ -60,7 +60,7 @@ def callback():
 def handle_message(event):
     text = event.message.text
     if text == '写真下見':
-        confirm_template = ConfirmTemplate(text='LINE下見ですね。こちらはすでに日通にご連絡いただいた方専用となります。　<日通にご連絡いただいていますか？', 
+        confirm_template = ConfirmTemplate(text='LINE下見ですね。こちらはすでに日通にご連絡いただいた方専用となります。　日通にご連絡いただいていますか？', 
         actions=[
             MessageAction(label='はい', text='はい'),
             MessageAction(label='いいえ', text='いいえ'),
@@ -68,6 +68,10 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Confirm alt text', template=confirm_template)
         line_bot_api.reply_message(event.reply_token, template_message)
+    elif text =='はい':
+        messages = [
+                TextSendMessage(text='日通担当者とお打合せ開始済みの場合は、お客様のフルネームをご記入後、お写真をご送付ください。')
+            ]
     elif text == 'いいえ':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='新規のお問い合わせはこちらからご連絡ください。', title='新規お問い合わせ', actions=[
@@ -75,7 +79,7 @@ def handle_message(event):
             ]), 
         ])
         template_message = TemplateSendMessage(
-            alt_text='Carousel alt text', template=carousel_template)
+            alt_text='新規お問い合わせ', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
 
     elif text == 'index':
