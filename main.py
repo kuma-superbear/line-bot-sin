@@ -90,15 +90,22 @@ def handle_message(event):
                 {"type":"uri", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdfz'}, 
                 {"type":"uri", "label":'２. 日本向け　お荷物別注意点', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'}, 
                 {"type":"message", "label":"３.　日本向け　所要日数", "text":"３.　日本向け　所要日数"},
-                {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
-                {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
-                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
-                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
+#                {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
+#                {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
+#                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
+#                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
             ]), 
         ])
         template_message = TemplateSendMessage(
             alt_text='Carousel alt text', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
+    elif text =='３.　日本向け　所要日数':
+            line_bot_api.reply_message(
+                event.reply_token, [
+                TextSendMessage(text='日通担当者とお打合せ開始済みの場合は、お客様のフルネームをご記入後、お写真をご送付ください。')
+                ]
+            )
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text)) 
