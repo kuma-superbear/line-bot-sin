@@ -89,7 +89,7 @@ def handle_message(event):
             CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
                 URIAction(label='１. 日本向け　禁制品一覧', uri='https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdfz'),
                 URIAction(label='２. 日本向け　お荷物別注意点', uri='https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'),
-                PostbackAction(label= "３.　日本向け　所要日数", data='３.　日本向け　所要日数'),
+                {"type": "message", "label": "３.　日本向け　所要日数", "data": '３.　日本向け　所要日数'},
                 URIAction(label='４．お客様事前梱包について', uri='https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'),
                 URIAction(label='５．仕分けの方法について', uri='https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'),
                 URIAction(label='６．日本人会への寄付品について', uri='https://line.me'),
