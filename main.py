@@ -59,6 +59,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
+
     if text == '写真下見':
         confirm_template = ConfirmTemplate(text='LINE下見ですね。こちらはすでに日通にご連絡いただいた方専用となります。　日通にご連絡いただいていますか？', 
         actions=[
@@ -83,15 +84,12 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='新規お問い合わせ', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-
-    elif text == 'index':
+    elif text == '引越準備の情報':
         carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='以下の選択肢より、お選びください。', title='お問い合わせ内容', actions=[
-                URIAction(label='1. 新規受付', uri='https://line.me'),
-##                URIAction(label='2. 写真下見', uri='https://line.me'),
-#                URIAction(label='3. お役立ち情報', uri='https://line.me'),
-#                URIAction(label='4. ホームページ', uri='https://www.nipponexpress.com/moving/sg/'),
-                PostbackAction(label='ping', data='ping')
+            CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
+                URIAction(label='１.日本向け　禁制品一覧', uri='https://line.me'),
+                URIAction(label='２.日本向け　お荷物別注意点', uri='https://line.me'),
+                URIAction(label='３.日本向け　所要日数', uri='https://line.me'),
             ]), 
         ])
         template_message = TemplateSendMessage(
