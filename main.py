@@ -84,23 +84,23 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='新規お問い合わせ', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif text == '引越準備の情報':
-        carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
-                {"type":"uri", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdf'}, 
-                {"type":"uri", "label":'２. 日本向け　お荷物別注意点', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'}, 
-                {"type":"message", "label":"３. 日本向け　所要日数", "text":"３.　日本向け　所要日数"}
+#    elif text == '引越準備の情報':
+#        carousel_template = CarouselTemplate(columns=[
+#            CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
+#                {"type":"uri", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdf'}, 
+#                {"type":"uri", "label":'２. 日本向け　お荷物別注意点', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'}, 
+#                {"type":"message", "label":"３. 日本向け　所要日数", "text":"３.　日本向け　所要日数"}
 #                {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
 #                {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
 #                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
 #                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
-            ]), 
-        ])
-        template_message = TemplateSendMessage(
-            alt_text='Carousel alt text', template=carousel_template)
-        line_bot_api.reply_message(event.reply_token, template_message)
+#            ]), 
+#        ])
+#        template_message = TemplateSendMessage(
+#            alt_text='Carousel alt text', template=carousel_template)
+#        line_bot_api.reply_message(event.reply_token, template_message)
 
-    elif text == 'flex':
+    elif text == '引越準備の情報':
         bubble_string = """
 {
     "type": "bubble",
@@ -160,27 +160,9 @@ def handle_message(event):
         {
           "type": "button",
           "action": {
-            "type": "message",
-            "label": "1. 新規受付",
-            "text": "1. 新規受付"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "2. 写真下見",
-            "text": "2. 写真下見"
-          },
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "3. お役立ち情報",
-            "text": "3. お役立ち情報"
+            "type": "uri",
+            "label": "【日本向け】禁制品一覧",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdf"
           },
           "style": "primary"
         },
@@ -188,8 +170,53 @@ def handle_message(event):
           "type": "button",
           "action": {
             "type": "uri",
-            "label": "4. ホームページ",
-            "uri": "https://www.nipponexpress.com/moving/sg/"
+            "label": "【日本向け】お荷物別注意点",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "【日本向け】所要日数",
+            "text": "【日本向け】所要日数"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "お客様事前梱包について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "仕分けの方法について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "日本人会への寄付品について",
+            "text": "日本人会への寄付品について"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "別送品申告について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf"
           },
           "style": "primary"
         },
@@ -206,12 +233,20 @@ def handle_message(event):
             event.reply_token,
             message
         )
-    elif text =='３. 日本向け　所要日数':
+    elif text =='【日本向け】所要日数':
             line_bot_api.reply_message(
                 event.reply_token, [
                 TextSendMessage(text='シンガポールから日本の所要日数目安は下記となります。'),
                 TextSendMessage(text='船便：1ヶ月～1か月半/航空便：2週間前後'),
                 TextSendMessage(text='※北海道、沖縄、離島は上記に加え数日いただく場合がございます。/船舶、航空便の遅延により、上記よりお時間を要する場合がございます。')
+                ]
+            )
+    elif text =='日本人会への寄付品について':
+            line_bot_api.reply_message(
+                event.reply_token, [
+                TextSendMessage(text='シンガポール日通では、日本人会への寄付品を、お引越時にお受け取りし、日本人会へお運びしております。'),
+                TextSendMessage(text='不要な本（新品、中古品）・日用品（未使用のみ）・お洋服（未使用のみ）'),
+                TextSendMessage(text='ご自宅1か所にまとめていただき、お引越当日、寄付品がある旨、スタッフへお申しつけ下さい。')
                 ]
             )
 
