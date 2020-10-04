@@ -68,8 +68,6 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Confirm alt text', template=confirm_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif text == 'はい':
-
     elif text == 'いいえ':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='新規のお問い合わせはこちらからご連絡ください。', title='新規お問い合わせ', actions=[
