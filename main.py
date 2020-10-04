@@ -87,7 +87,7 @@ def handle_message(event):
     elif text == '引越準備の情報':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
-                {"type":"url", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdfz'}, 
+                {"type":"uri", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdfz'}, 
                 {"type":"message", "label":"Yes", "text":"Yes"}
 #              URIAction(label='１. 日本向け　禁制品一覧', uri=),
 #                URIAction(label='２. 日本向け　お荷物別注意点', uri='https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'),
