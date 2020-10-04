@@ -73,7 +73,7 @@ def handle_message(event):
             alt_text='Carousel alt text', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     elif text == '開始':
-        bubble_string = 
+        bubble_string = '''
         {
             "type": "flex",
             "altText": "Flex Message",
@@ -175,16 +175,16 @@ def handle_message(event):
                 ]
                 }
             }
-        }
+        }'''
         
         message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
         line_bot_api.reply_message(
             event.reply_token,
             message
         )
-'''    line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))        '''
+        TextSendMessage(text=event.message.text)) 
 
 if __name__ == "__main__":
 #    app.run()
