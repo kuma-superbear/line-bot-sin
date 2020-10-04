@@ -93,7 +93,7 @@ def handle_message(event):
                 {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
                 {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
                 {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
-                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}, 
+                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
             ]), 
         ])
         template_message = TemplateSendMessage(
