@@ -69,9 +69,11 @@ def handle_message(event):
             alt_text='Confirm alt text', template=confirm_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     elif text =='はい':
-        messages = [
+            line_bot_api.reply_message(
+                event.reply_token, [
                 TextSendMessage(text='日通担当者とお打合せ開始済みの場合は、お客様のフルネームをご記入後、お写真をご送付ください。')
-            ]
+                ]
+            )
     elif text == 'いいえ':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='新規のお問い合わせはこちらからご連絡ください。', title='新規お問い合わせ', actions=[
