@@ -237,15 +237,15 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token, [
                 TextSendMessage(text='シンガポールから日本の所要日数目安は下記となります。'),
-                TextSendMessage(text='船便：1ヶ月～1か月半　"\n"航空便：2週間前後'),
-                TextSendMessage(text='※北海道、沖縄、離島は上記に加え数日いただく場合がございます。　"\n"※船舶、航空便の遅延により、上記よりお時間を要する場合がございます。')
+                TextSendMessage(text='船便：1ヶ月～1か月半　\n航空便：2週間前後'),
+                TextSendMessage(text='※北海道、沖縄、離島は上記に加え数日いただく場合がございます。　\n※船舶、航空便の遅延により、上記よりお時間を要する場合がございます。')
                 ]
             )
     elif text =='日本人会への寄付品について':
             line_bot_api.reply_message(
                 event.reply_token, [
                 TextSendMessage(text='シンガポール日通では、日本人会への寄付品を、お引越時にお受け取りし、日本人会へお運びしております。'),
-                TextSendMessage(text='・不要な本（新品、中古品）　"\n" ・日用品（未使用のみ）　"\n"・お洋服（未使用のみ）'),
+                TextSendMessage(text='・不要な本（新品、中古品）　\n・日用品（未使用のみ）　\n・お洋服（未使用のみ）'),
                 TextSendMessage(text='ご自宅1か所にまとめていただき、お引越当日、寄付品がある旨、スタッフへお申しつけ下さい。')
                 ]
             )
