@@ -95,19 +95,142 @@ def handle_message(event):
 #                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
 #                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
             ]), 
-            CarouselColumn(text='以下の選択肢より、お選びください。2', title='引越準備の情報2', actions=[
-                {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
-                {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
-                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"}
-#                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
-            ]), 
-            CarouselColumn(text='以下の選択肢より、お選びください。3', title='引越準備の情報3', actions=[
-                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
-            ]),
         ])
         template_message = TemplateSendMessage(
             alt_text='Carousel alt text', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
+
+    elif text == 'flex':
+        bubble_string = """
+        {
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip3.jpg",
+                "position": "relative",
+                "size": "full",
+                "aspectMode": "cover",
+                "aspectRatio": "1:1",
+                "gravity": "center"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Brown Hotel",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#ffffff"
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "margin": "md",
+                        "contents": [
+                          {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                          },
+                          {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                          },
+                          {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                          },
+                          {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                          },
+                          {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                          },
+                          {
+                            "type": "text",
+                            "text": "4.0",
+                            "size": "sm",
+                            "color": "#d6d6d6",
+                            "margin": "md",
+                            "flex": 0
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "¥62,000",
+                        "color": "#a9a9a9",
+                        "decoration": "line-through",
+                        "align": "end"
+                      },
+                      {
+                        "type": "text",
+                        "text": "¥42,000",
+                        "color": "#ebebeb",
+                        "size": "xl",
+                        "align": "end"
+                      }
+                    ]
+                  }
+                ],
+                "position": "absolute",
+                "offsetBottom": "0px",
+                "offsetStart": "0px",
+                "offsetEnd": "0px",
+                "backgroundColor": "#00000099",
+                "paddingAll": "20px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "SALE",
+                    "color": "#ffffff"
+                  }
+                ],
+                "position": "absolute",
+                "backgroundColor": "#ff2600",
+                "cornerRadius": "20px",
+                "paddingAll": "5px",
+                "offsetTop": "10px",
+                "offsetEnd": "10px",
+                "paddingStart": "10px",
+                "paddingEnd": "10px"
+              }
+            ],
+            "paddingAll": "0px"
+          }
+        }
+        """
+        message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
+        line_bot_api.reply_message(
+            event.reply_token,
+            message
+        )
     elif text =='３. 日本向け　所要日数':
             line_bot_api.reply_message(
                 event.reply_token, [
