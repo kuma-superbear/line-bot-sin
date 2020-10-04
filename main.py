@@ -63,9 +63,9 @@ def handle_message(event):
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='以下の選択肢より、お選びください。', title='お問い合わせ内容', actions=[
                 URIAction(label='1. 新規受付', uri='https://line.me'),
-                URIAction(label='2. 写真下見', uri='https://line.me'),
-                URIAction(label='3. お役立ち情報', uri='https://line.me'),
-                URIAction(label='4. ホームページ', uri='https://www.nipponexpress.com/moving/sg/'),
+##                URIAction(label='2. 写真下見', uri='https://line.me'),
+#                URIAction(label='3. お役立ち情報', uri='https://line.me'),
+#                URIAction(label='4. ホームページ', uri='https://www.nipponexpress.com/moving/sg/'),
                 PostbackAction(label='ping', data='ping')
             ]), 
         ])
