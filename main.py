@@ -106,7 +106,7 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "./image/standard.jpg",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
