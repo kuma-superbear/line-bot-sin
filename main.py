@@ -70,11 +70,17 @@ def handle_message(event):
             alt_text='Confirm alt text', template=confirm_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     elif text =='はい':
-            line_bot_api.reply_message(
-                event.reply_token, [
-                TextSendMessage(text='日通担当者とお打合せ開始済みの場合は、お客様のフルネームをご記入後、お写真をご送付ください。')
-                ]
-            )
+        carousel_template = CarouselTemplate(columns=[
+            CarouselColumn(text='リンク先は下見専用LINEです。お手数ですが、下記お手続きをお願い致します。 \
+            ①シンガポール日通引越部の友達登録をして下さい\n　\
+            ②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。\n　\
+            ③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。', title='写真下見', actions=[
+                URIAction(label='新規お問い合わせ', uri='https://www.nittsu.co.jp/form_gl/php/agree.php?ID=moving_sg'),
+            ]), 
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='写真下見', template=carousel_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
     elif text == 'いいえ':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='新規のお問い合わせはこちらからご連絡ください。', title='新規お問い合わせ', actions=[
