@@ -97,8 +97,8 @@ def handle_message(event):
         "contents": [
           {
             "type": "text",
-            "text": "リンク先は下見専用LINEです。",
-            "size": "lg",
+            "text": "リンク先は下見専用LINEです",
+            "size": "md",
             "flex": 1,
             "gravity": "top",
             "contents": []
@@ -106,7 +106,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "お手数ですが、以下の手続きを",
-            "size": "lg",
+            "size": "md",
             "flex": 1,
             "gravity": "top",
             "contents": []
@@ -114,7 +114,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "お願いします。",
-            "size": "lg",
+            "size": "md",
             "flex": 1,
             "gravity": "top",
             "contents": []
@@ -127,7 +127,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "①リンク先からシンガポール日通",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -135,7 +135,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "引越部を友達登録してください。",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -143,7 +143,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "②シンガポール日通引越部のチャット",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -151,7 +151,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "画面に移り、お客様のフルネームを",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -159,7 +159,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "ご記入後、お写真をご送付下さい。",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -167,7 +167,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "③ご送付後、営業時間内に担当者より",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -175,7 +175,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "LINE上で受領確認のコメントを",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
@@ -183,7 +183,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "させていただきます。",
-            "size": "md",
+            "size": "xs",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
