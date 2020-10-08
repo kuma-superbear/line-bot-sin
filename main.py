@@ -79,7 +79,7 @@ def handle_message(event):
         )
 
 
-    elif text == 'test':
+    elif text == 'テスト':
         bubble_string = """
 {
   "type": "bubble",
