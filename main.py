@@ -106,7 +106,7 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://nittsu-bot-sin.herokuapp.com/image/standadrd.jpg",
+      "url": "https://nittsu-bot-sin.herokuapp.com/image/standard.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
@@ -206,7 +206,7 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "./image/japan.jpg",
+      "url": "https://nittsu-bot-sin.herokuapp.com/image/japan.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
