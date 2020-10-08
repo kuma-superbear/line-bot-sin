@@ -106,14 +106,14 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "url": "./image/standard.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
       "action": {
         "type": "uri",
-        "label": "Line",
-        "uri": "https://linecorp.com/"
+        "label": "Nippon Express",
+        "uri": "https://www.nipponexpress.com/moving/sg/"
       }
     },
     "body": {
@@ -206,14 +206,14 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "url": "./image/japan.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
       "action": {
         "type": "uri",
-        "label": "Line",
-        "uri": "https://linecorp.com/"
+        "label": "Nippon Express",
+        "uri": "https://www.nipponexpress.com/moving/sg/from/"
       }
     },
     "body": {
