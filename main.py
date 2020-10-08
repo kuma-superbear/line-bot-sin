@@ -122,7 +122,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "",
-            "size": "s",
+            "size": "md",
             "flex": 1,
             "gravity": "top",
             "contents": []
@@ -133,7 +133,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "お手数ですが、下記お手続きをお願い致します。",
-            "size": "s",
+            "size": "md",
             "flex": 2,
             "gravity": "center",
             "contents": []
@@ -152,7 +152,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。",
-            "size": "s",
+            "size": "md",
             "flex": 2,
             "gravity": "center",
             "contents": []
@@ -163,7 +163,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。",
-            "size": "s",
+            "size": "md",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
