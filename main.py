@@ -83,20 +83,6 @@ def handle_message(event):
         bubble_string = """
 {
   "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "horizontal",
-    "contents": [
-      {
-        "type": "text",
-        "text": "写真下見",
-        "weight": "bold",
-        "size": "sm",
-        "color": "#AAAAAA",
-        "contents": []
-      }
-    ]
-  },
   "hero": {
     "type": "image",
     "url": "https://www.nipponexpress.com/moving/sg/img/from/index_img06.jpg",
@@ -106,7 +92,7 @@ def handle_message(event):
     "action": {
       "type": "uri",
       "label": "Action",
-      "uri": "https://line.me/R/ti/p/@518pspcq"
+      "uri": "https://linecorp.com/"
     }
   },
   "body": {
@@ -121,48 +107,92 @@ def handle_message(event):
         "contents": [
           {
             "type": "text",
-            "text": "",
-            "size": "md",
+            "text": "リンク先は下見専用LINEです。",
+            "size": "lg",
             "flex": 1,
             "gravity": "top",
             "contents": []
           },
           {
-            "type": "separator"
-          },
-          {
             "type": "text",
-            "text": "お手数ですが、下記お手続きをお願い致します。",
-            "size": "md",
-            "flex": 2,
-            "gravity": "center",
+            "text": "お手数ですが、以下の手続きを",
+            "size": "lg",
+            "flex": 1,
+            "gravity": "top",
             "contents": []
           },
           {
             "type": "text",
-            "text": "①シンガポール日通引越部の友達登録をして下さい",
-            "size": "md",
-            "flex": 2,
-            "gravity": "center",
+            "text": "お願いします。",
+            "size": "lg",
+            "flex": 1,
+            "gravity": "top",
             "contents": []
           },
           {
-            "type": "separator"
+            "type": "separator",
+            "margin": "md",
+            "color": "#FFFFFFFF"
           },
           {
             "type": "text",
-            "text": "②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。",
+            "text": "①リンク先からシンガポール日通",
             "size": "md",
-            "flex": 2,
-            "gravity": "center",
+            "flex": 1,
+            "gravity": "bottom",
             "contents": []
           },
           {
-            "type": "separator"
+            "type": "text",
+            "text": "引越部を友達登録してください。",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
           },
           {
             "type": "text",
-            "text": "③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。",
+            "text": "②シンガポール日通引越部のチャット",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "画面に移り、お客様のフルネームを",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "ご記入後、お写真をご送付下さい。",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "③ご送付後、営業時間内に担当者より",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "LINE上で受領確認のコメントを",
+            "size": "md",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "させていただきます。",
             "size": "md",
             "flex": 1,
             "gravity": "bottom",
@@ -180,8 +210,8 @@ def handle_message(event):
         "type": "button",
         "action": {
           "type": "uri",
-          "label": "More",
-          "uri": "https://linecorp.com"
+          "label": "写真下見専用アカウントはこちら",
+          "uri": "https://line.me/R/ti/p/@518pspcq"
         }
       }
     ]
