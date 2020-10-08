@@ -100,107 +100,7 @@ def handle_message(event):
 #            alt_text='Carousel alt text', template=carousel_template)
 #        line_bot_api.reply_message(event.reply_token, template_message)
 
-    elif text == 'お引越しの準備（世界共通）':
-        bubble_string = """
-{
-    "type": "bubble",
-    "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "action": {
-        "type": "uri",
-        "label": "Line",
-        "uri": "https://linecorp.com/"
-      }
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "お問い合わせ内容",
-          "size": "xl",
-          "weight": "bold"
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "margin": "lg",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "以下の選択肢より、お選びください。",
-                  "flex": 5,
-                  "size": "sm",
-                  "color": "#666666",
-                  "wrap": true
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "flex": 0,
-      "spacing": "sm",
-      "contents": [
-        {
-          "type": "button",
-          "action": {
-            "type": "uri",
-            "label": "お客様事前梱包について",
-            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf"
-          },
-          "color": "#063D78FF",
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "uri",
-            "label": "仕分けの方法について",
-            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf"
-          },
-          "color": "#063D78FF",
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "日本人会への寄付品について",
-            "text": "日本人会への寄付品について"
-          },
-          "color": "#063D78FF",
-          "style": "primary"
-        },
-        {
-          "type": "spacer",
-          "size": "sm"
-        }
-      ]
-    }
-  }
-        """
-        message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
-        line_bot_api.reply_message(
-            event.reply_token,
-            message
-        )
-    elif text == 'お引越しの準備（日本向け）':
+    elif text == '引越準備の情報':
         bubble_string = """
 {
     "type": "bubble",
@@ -264,7 +164,6 @@ def handle_message(event):
             "label": "【日本向け】禁制品一覧",
             "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdf"
           },
-          "color": "#063D78FF",
           "style": "primary"
         },
         {
@@ -274,7 +173,6 @@ def handle_message(event):
             "label": "【日本向け】お荷物別注意点",
             "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf"
           },
-          "color": "#063D78FF",
           "style": "primary"
         },
         {
@@ -284,7 +182,42 @@ def handle_message(event):
             "label": "【日本向け】所要日数",
             "text": "【日本向け】所要日数"
           },
-          "color": "#063D78FF",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "お客様事前梱包について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "仕分けの方法について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "日本人会への寄付品について",
+            "text": "日本人会への寄付品について"
+          },
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "別送品申告について",
+            "uri": "https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf"
+          },
           "style": "primary"
         },
         {
