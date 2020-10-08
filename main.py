@@ -84,22 +84,6 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='新規お問い合わせ', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-#    elif text == '引越準備の情報':
-#        carousel_template = CarouselTemplate(columns=[
-#            CarouselColumn(text='以下の選択肢より、お選びください。', title='引越準備の情報', actions=[
-#                {"type":"uri", "label":"１. 日本向け　禁制品一覧", "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-prohibiteditems-list.pdf'}, 
-#                {"type":"uri", "label":'２. 日本向け　お荷物別注意点', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-luggage_attention.pdf'}, 
-#                {"type":"message", "label":"３. 日本向け　所要日数", "text":"３.　日本向け　所要日数"}
-#                {"type":"uri", "label":'４．お客様事前梱包について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-customer-packing.pdf'}, 
-#                {"type":"uri", "label":'５．仕分けの方法について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-sorting.pdf'}, 
-#                {"type":"message", "label":"６．日本人会への寄付品について", "text":"６．日本人会への寄付品について"},
-#                {"type":"uri", "label":'７．別送品申告について', "uri":'https://www.nipponexpress.com/moving/sg/doc/flow-unaccompanied-baggage-personal-effects.pdf'}
-#            ]), 
-#        ])
-#        template_message = TemplateSendMessage(
-#            alt_text='Carousel alt text', template=carousel_template)
-#        line_bot_api.reply_message(event.reply_token, template_message)
-
     elif text == 'お引越しの準備（世界共通）':
         bubble_string = """
 {
@@ -206,7 +190,7 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://nittsu-bot-sin.herokuapp.com/image/japan.jpg",
+      "url": "https://www.nipponexpress.com/moving/sg/img/from/index_img03.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
