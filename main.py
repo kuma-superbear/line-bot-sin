@@ -141,7 +141,7 @@ def handle_message(event):
           {
             "type": "text",
             "text": "①シンガポール日通引越部の友達登録をして下さい",
-            "size": "s",
+            "size": "md",
             "flex": 2,
             "gravity": "center",
             "contents": []
