@@ -90,7 +90,7 @@ def handle_message(event):
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://nittsu-bot-sin.herokuapp.com/image/standard.jpg",
+      "url": "https://www.nipponexpress.com/moving/sg/img/from/index_img04.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
