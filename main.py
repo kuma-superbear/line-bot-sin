@@ -79,7 +79,7 @@ def handle_message(event):
         )
 
 
-    elif text == 'お引越しの準備（世界共通）':
+    elif text == 'test':
         bubble_string = """
 {
   "type": "bubble",
