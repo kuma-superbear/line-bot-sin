@@ -76,15 +76,119 @@ def handle_message(event):
             TextSendMessage(text='①シンガポール日通引越部の友達登録をして下さい\n②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。\n③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。'),
             TextSendMessage(text='シンガポール日通引越部', uri='https://line.me/R/ti/p/@518pspcq'),
             ]
-        ),
-        carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='リンク先は下見専用LINEです。', title='写真下見', actions=[
-                URIAction(label='シンガポール日通引越部', uri='https://line.me/R/ti/p/@518pspcq'),
-            ]), 
-        ])
-        template_message = TemplateSendMessage(
-            alt_text='写真下見', template=carousel_template)
-        line_bot_api.reply_message(event.reply_token, template_message)
+        )
+
+
+    elif text == 'お引越しの準備（世界共通）':
+        bubble_string = """
+{
+  "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "text",
+        "text": "NEWS DIGEST",
+        "weight": "bold",
+        "size": "sm",
+        "color": "#AAAAAA",
+        "contents": []
+      }
+    ]
+  },
+  "hero": {
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "label": "Action",
+      "uri": "https://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "flex": 2,
+        "contents": [
+          {
+            "type": "text",
+            "text": "7 Things to Know for Today",
+            "size": "xs",
+            "flex": 1,
+            "gravity": "top",
+            "contents": []
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "text",
+            "text": "Hay fever goes wild",
+            "size": "xs",
+            "flex": 2,
+            "gravity": "center",
+            "contents": []
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "text",
+            "text": "LINE Pay Begins Barcode Payment Service",
+            "size": "xs",
+            "flex": 2,
+            "gravity": "center",
+            "contents": []
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "text",
+            "text": "LINE Adds LINE Wallet",
+            "size": "xs",
+            "flex": 1,
+            "gravity": "bottom",
+            "contents": []
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "More",
+          "uri": "https://linecorp.com"
+        }
+      }
+    ]
+  }
+}
+        """
+        message = FlexSendMessage(alt_text="hello", contents=json.loads(bubble_string))
+        line_bot_api.reply_message(
+            event.reply_token,
+            message
+        )
+
+
+
+
     elif text == 'いいえ':
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='新規のお問い合わせはこちらからご連絡ください。', title='新規お問い合わせ', actions=[
