@@ -75,7 +75,7 @@ def handle_message(event):
             ①シンガポール日通引越部の友達登録をして下さい\n　\
             ②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。\n　\
             ③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。', title='写真下見', actions=[
-                URIAction(label='新規お問い合わせ', uri='https://www.nittsu.co.jp/form_gl/php/agree.php?ID=moving_sg'),
+                URIAction(label='シンガポール日通引越部', uri='https://line.me/R/ti/p/@518pspcq'),
             ]), 
         ])
         template_message = TemplateSendMessage(
