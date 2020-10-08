@@ -72,10 +72,10 @@ def handle_message(event):
     elif text =='はい':
         line_bot_api.reply_message(
             event.reply_token, [
-            TextSendMessage(text='お手数ですが、下記お手続きをお願い致します。\n'),
+            TextSendMessage(text='お手数ですが、下記お手続きをお願い致します。'),
             TextSendMessage(text='①シンガポール日通引越部の友達登録をして下さい\n②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。\n③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。'),
             ]
-        )
+        ),
         carousel_template = CarouselTemplate(columns=[
             CarouselColumn(text='リンク先は下見専用LINEです。', title='写真下見', actions=[
                 URIAction(label='シンガポール日通引越部', uri='https://line.me/R/ti/p/@518pspcq'),
