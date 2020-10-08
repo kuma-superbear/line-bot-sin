@@ -89,7 +89,7 @@ def handle_message(event):
     "contents": [
       {
         "type": "text",
-        "text": "NEWS DIGEST",
+        "text": "写真下見",
         "weight": "bold",
         "size": "sm",
         "color": "#AAAAAA",
@@ -99,14 +99,14 @@ def handle_message(event):
   },
   "hero": {
     "type": "image",
-    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+    "url": "https://www.nipponexpress.com/moving/sg/img/from/index_img06.jpg",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
     "action": {
       "type": "uri",
       "label": "Action",
-      "uri": "https://linecorp.com/"
+      "uri": "https://line.me/R/ti/p/@518pspcq"
     }
   },
   "body": {
@@ -121,8 +121,8 @@ def handle_message(event):
         "contents": [
           {
             "type": "text",
-            "text": "7 Things to Know for Today",
-            "size": "xs",
+            "text": "",
+            "size": "s",
             "flex": 1,
             "gravity": "top",
             "contents": []
@@ -132,8 +132,16 @@ def handle_message(event):
           },
           {
             "type": "text",
-            "text": "Hay fever goes wild",
-            "size": "xs",
+            "text": "お手数ですが、下記お手続きをお願い致します。",
+            "size": "s",
+            "flex": 2,
+            "gravity": "center",
+            "contents": []
+          },
+          {
+            "type": "text",
+            "text": "①シンガポール日通引越部の友達登録をして下さい",
+            "size": "s",
             "flex": 2,
             "gravity": "center",
             "contents": []
@@ -143,8 +151,8 @@ def handle_message(event):
           },
           {
             "type": "text",
-            "text": "LINE Pay Begins Barcode Payment Service",
-            "size": "xs",
+            "text": "②シンガポール日通引越部のチャット画面に移り、お客様のフルネームをご記入後、お写真をご送付下さい。",
+            "size": "s",
             "flex": 2,
             "gravity": "center",
             "contents": []
@@ -154,8 +162,8 @@ def handle_message(event):
           },
           {
             "type": "text",
-            "text": "LINE Adds LINE Wallet",
-            "size": "xs",
+            "text": "③ご送付後、営業時間内に、担当者より、LINE上で受領確認のコメントをさせていただきます。",
+            "size": "s",
             "flex": 1,
             "gravity": "bottom",
             "contents": []
