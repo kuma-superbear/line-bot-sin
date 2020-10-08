@@ -106,7 +106,7 @@ def handle_message(event):
       "contents": [
         {
           "type": "text",
-          "text": "お問い合わせ内容",
+          "text": "お引越しの準備（世界共通）",
           "size": "xl",
           "weight": "bold"
         },
@@ -206,7 +206,7 @@ def handle_message(event):
       "contents": [
         {
           "type": "text",
-          "text": "お問い合わせ内容",
+          "text": "お引越しの準備（日本向け）",
           "size": "xl",
           "weight": "bold"
         },
