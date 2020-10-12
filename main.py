@@ -201,7 +201,7 @@ def handle_message(event):
         "action": {
           "type": "uri",
           "label": "写真下見専用アカウントはこちら",
-          "uri": "https://line.me/R/ti/p/@518pspcq"
+          "uri": "https://line.me/R/ti/p/@nittsu.sin.shitami"
         }
       }
     ]
